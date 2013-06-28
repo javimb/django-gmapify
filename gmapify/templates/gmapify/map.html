@@ -1,0 +1,24 @@
+{% block api %}
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+{% endblock api %}
+
+{% block initialize_map %}
+    <script type="text/javascript">
+        window.onload = function() {
+            var latLng = new google.maps.LatLng({{ lat }}, {{ lng }});
+            var mapOptions = {
+                center: latLng,
+                zoom: {{ zoom }},
+                mapTypeId: google.maps.MapTypeId.{{ map_type }}
+            };
+            var map = new google.maps.Map(document.getElementById("{{ html_id }}"), mapOptions);
+            {% if marker_title %}
+            var marker = new google.maps.Marker({
+                position: latLng,
+                map: map,
+                title: "{{ marker_title }}"
+            })
+            {% endif %}
+        }
+    </script>
+{% endblock initialize_map %}
