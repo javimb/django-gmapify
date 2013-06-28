@@ -15,7 +15,7 @@ Using `pip`:
 Or cloning the project from github:
 
     $ git clone git@javimb/django-gmapify.git
-$ cd django-gmapify
+    $ cd django-gmapify
     $ pip install -r requirements.txt
 
 ## Usage
